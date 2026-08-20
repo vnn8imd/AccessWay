@@ -1,0 +1,12 @@
+# Dependencias de Node.js
+node_modules/
+
+# Archivos generados durante la compilación
+dist/
+
+# Variables de entorno y credenciales
+.env
+.env.*
+
+# Configuración local de Obsidian
+.obsidian/
