@@ -38,3 +38,31 @@ Al acceder desde el navegador a la dirección `http://localhost:8080/`, se mostr
 Finalmente, se detuvo la aplicación manualmente mediante `Ctrl + C` desde la terminal.
 
 La aplicación realizó un apagado controlado correctamente, cerrando el servidor web y el pool de conexiones con la base de datos sin producir errores.
+
+### Configuración permanente de las credenciales de la base de datos
+
+Inicialmente, las variables necesarias para la conexión con PostgreSQL se configuraron temporalmente en una sesión de PowerShell.
+
+Para facilitar el trabajo diario y evitar tener que volver a introducir la configuración cada vez que se abre una nueva terminal o se reinicia el equipo, las variables se configuraron posteriormente como variables de entorno de usuario permanentes de Windows.
+
+Se configuraron las siguientes variables:
+
+- `DB_URL`
+- `DB_USERNAME`
+- `DB_PASSWORD`
+
+La contraseña de PostgreSQL no se almacena en el código fuente ni en el repositorio de GitHub.
+
+El archivo `application.properties` utiliza estas variables para configurar la conexión con la base de datos.
+
+Posteriormente se cerró la sesión de PowerShell y se abrió una nueva terminal para comprobar que las variables permanecían disponibles.
+
+Finalmente, se ejecutó nuevamente el backend mediante Maven Wrapper y Spring Boot inició correctamente utilizando la configuración almacenada en las variables de entorno permanentes.
+
+Se comprobó correctamente el inicio de la aplicación mediante el mensaje:
+
+`Started BackendApplication`
+
+Con esta configuración, el entorno de desarrollo puede utilizarse de forma habitual sin necesidad de volver a introducir las credenciales de PostgreSQL cada vez que se abre una nueva terminal o se reinicia el equipo.
+
+
