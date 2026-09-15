@@ -65,4 +65,32 @@ Se comprobó correctamente el inicio de la aplicación mediante el mensaje:
 
 Con esta configuración, el entorno de desarrollo puede utilizarse de forma habitual sin necesidad de volver a introducir las credenciales de PostgreSQL cada vez que se abre una nueva terminal o se reinicia el equipo.
 
+## Creación y comprobación del primer endpoint REST
+
+### Creación del controlador
+
+Una vez comprobada la configuración inicial del backend, se creó la carpeta `controller` dentro de la estructura principal del proyecto:
+
+`backend/src/main/java/com/accessway/backend/controller`
+
+Dentro de esta carpeta se creó la clase `HealthController.java`.
+
+El controlador se implementó utilizando `@RestController` y se añadió un primer endpoint mediante `@GetMapping`.
+
+El endpoint creado es:
+
+`GET /api/health`
+
+Su objetivo en esta fase inicial es comprobar que el backend puede recibir una petición HTTP y devolver correctamente una respuesta.
+
+### Comprobación de compilación y pruebas
+
+Antes de arrancar el servidor, se ejecutó la compilación y las pruebas automáticas mediante Maven Wrapper:
+
+```text
+.\backend\mvnw.cmd -f .\backend\pom.xml test
+```
+
+
+
 

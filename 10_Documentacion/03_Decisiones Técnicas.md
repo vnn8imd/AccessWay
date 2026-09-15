@@ -45,3 +45,36 @@ spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
 ```
 
+
+### Ahora `03_Decisiones Técnicas.md`
+
+Añade también al final:
+
+```markdown
+## Primer endpoint REST
+
+### Decisión
+
+Se crea un primer endpoint REST sencillo para comprobar el funcionamiento del backend antes de comenzar con las funcionalidades propias de AccessWay.
+
+El endpoint utilizado es:
+
+`GET /api/health`
+
+La implementación se realiza mediante un controlador REST (`HealthController`) utilizando Spring Boot.
+
+### Motivo
+
+Antes de desarrollar funcionalidades relacionadas con usuarios, rutas o incidencias, se considera conveniente comprobar que la infraestructura básica del backend funciona correctamente.
+
+Este endpoint permite realizar una primera comprobación independiente de la lógica de negocio y de la base de datos.
+
+### Alcance
+
+El endpoint tiene únicamente una finalidad de comprobación durante esta fase inicial del desarrollo.
+
+No representa todavía una funcionalidad principal de AccessWay.
+
+En fases posteriores se sustituirá o complementará con endpoints relacionados con las funcionalidades reales de la aplicación.
+```
+
