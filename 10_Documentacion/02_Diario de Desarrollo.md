@@ -92,5 +92,50 @@ Antes de arrancar el servidor, se ejecutó la compilación y las pruebas automá
 ```
 
 
+La compilación y las pruebas finalizaron correctamente con el resultado `BUILD SUCCESS`.
 
+Posteriormente, se arrancó el backend mediante Spring Boot utilizando Maven Wrapper:
+
+```text
+.\backend\mvnw.cmd -f .\backend\pom.xml spring-boot:run
+```
+
+## Evolución del endpoint de estado: respuesta estructurada mediante DTO
+
+Una vez comprobado el funcionamiento del primer endpoint REST, se mejoró su respuesta para que el backend devolviera información estructurada en formato JSON en lugar de una cadena de texto simple.
+
+### Creación del DTO
+
+Se creó el paquete:
+
+`backend/src/main/java/com/accessway/backend/dto`
+
+Dentro de este paquete se creó la clase `HealthResponse.java`.
+
+Esta clase actúa como DTO (Data Transfer Object) y contiene los datos que el endpoint enviará al cliente:
+
+- `status`
+- `message`
+
+El DTO dispone de un constructor para inicializar estos valores y de sus correspondientes métodos `get`.
+
+### Modificación del controlador
+
+Inicialmente, el método `health()` de `HealthController` devolvía directamente un `String`.
+
+La respuesta inicial era:
+
+```text
+AccessWay backend funcionando correctamente
+```
+
+El controlador se modificó para devolver un objeto `HealthResponse`.
+Ya no construye una respuesta como texto plano, sino que devuelve un objeto Java con una estructura definida.
+
+```json
+{
+  "status": "UP",
+  "message": "AccessWay backend funcionando correctamente"
+}
+```
 
